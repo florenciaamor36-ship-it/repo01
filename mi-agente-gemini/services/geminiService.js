@@ -8,6 +8,12 @@ async function generateResponse(prompt) {
     return response.text();
   } catch (error) {
     console.error("Error in GeminiService:", error);
+
+    // Check for specific "service disabled" error
+    if (error.message && error.message.includes("SERVICE_DISABLED")) {
+        throw new Error("La API de Gemini está desactivada para este proyecto. Por favor, actívala en Google Cloud Console.");
+    }
+
     throw error;
   }
 }
