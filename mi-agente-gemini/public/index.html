@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Agente Gemini</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>Mi Agente Gemini</h1>
+            <div id="status-indicator" class="status">Cargando...</div>
+        </header>
+
+        <main id="chat-window">
+            <div id="messages" class="messages-container">
+                <!-- Los mensajes aparecerán aquí -->
+                <div class="message system">¡Hola! Soy tu asistente inteligente. ¿En qué puedo ayudarte hoy?</div>
+            </div>
+        </main>
+
+        <footer>
+            <form id="chat-form">
+                <input type="text" id="user-input" placeholder="Escribe un mensaje..." autocomplete="off">
+                <button type="submit" id="send-btn">Enviar</button>
+            </form>
+        </footer>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script src="js/chat.js"></script>
+    <script src="js/agent.js"></script>
+</body>
+</html>
