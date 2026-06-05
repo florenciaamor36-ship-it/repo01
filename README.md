@@ -1,57 +1,41 @@
 # Mi Agente Gemini
 
-Este es un agente inteligente construido con Node.js, Express y la API de Google Gemini (modelo gemini-1.5-flash).
+Este es un agente inteligente construido con Node.js, Express y la API de Google Gemini. Soporta tanto ejecución en servidor (Backend) como ejecución directa en el navegador (Client-Side).
 
 ## Estructura del Proyecto
 
 ```
 mi-agente-gemini/
 ├── config/             # Configuración de servicios externos (Gemini)
-├── public/             # Archivos estáticos (HTML, CSS, JS)
+├── public/             # Archivos estáticos (CSS, JS cliente)
 ├── routes/             # Definición de rutas de la API
-├── services/           # Lógica de negocio y servicios (Gemini API)
+├── services/           # Lógica de negocio (Gemini API Server)
 ├── utils/              # Funciones de ayuda y utilidades
 ├── .env.example        # Plantilla de variables de entorno
 ├── .gitignore          # Archivos ignorados por git
-├── package.json        # Dependencias del proyecto
-└── server.js           # Punto de entrada de la aplicación
+├── index.html          # Punto de entrada (Frontend)
+├── package.json        # Dependencias del proyecto (Backend)
+└── server.js           # Servidor Express (Backend)
 ```
+
+## Modos de Uso
+
+### 1. Modo Servidor (Full-Stack)
+Ideal para despliegues en servidores donde Node.js está disponible.
+- Instala dependencias: `npm install`
+- Configura `.env` con tu `GEMINI_API_KEY`.
+- Inicia el servidor: `npm start`.
+
+### 2. Modo Cliente (Estático / GitHub Pages)
+Ideal para despliegues en GitHub Pages o si el servidor no está disponible.
+- Abre `index.html` en tu navegador.
+- Haz clic en el icono de engranaje (⚙️).
+- Ingresa tu Gemini API Key. Esta se guardará de forma segura en tu navegador (`localStorage`).
 
 ## Requisitos
-
-- Node.js (v18 o superior recomendado)
-- Una API Key de Google Gemini
-
-## Instalación
-
-1. Clona el repositorio.
-2. Instala las dependencias:
-   ```bash
-   npm install
-   ```
-3. Configura tus variables de entorno:
-   - Copia `.env.example` a `.env`.
-   - Agrega tu `GEMINI_API_KEY`.
-
-## Uso
-
-Para iniciar el servidor en modo producción:
-```bash
-npm start
-```
-
-Para iniciar el servidor en modo desarrollo:
-```bash
-npm run dev
-```
-
-La aplicación estará disponible en `http://localhost:3000`.
+- Una API Key de Google Gemini. Puedes obtenerla en [Google AI Studio](https://aistudio.google.com/).
 
 ## Solución de Problemas
 
-### Error: API has not been used in project before or it is disabled
-Si recibes un error indicando que la API está desactivada, debes habilitarla en la consola de Google Cloud:
-1. Ve a [Google Cloud Console](https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview).
-2. Asegúrate de tener seleccionado el proyecto correcto.
-3. Haz clic en el botón **Habilitar**.
-4. Espera unos minutos y vuelve a intentar.
+### Error de conexión con el servidor
+Si ves este mensaje, es probable que la aplicación esté corriendo como un sitio estático. Simplemente configura tu API Key en los ajustes (⚙️) para habilitar el **Modo Cliente**.

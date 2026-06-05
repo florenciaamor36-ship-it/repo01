@@ -5,20 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Agente Gemini</title>
     <link rel="stylesheet" href="public/css/style.css">
+    <!-- Import map para el SDK de Gemini en el navegador -->
+    <script type="importmap">
+      {
+        "imports": {
+          "@google/generative-ai": "https://esm.run/@google/generative-ai"
+        }
+      }
+    </script>
 </head>
 <body>
     <div class="app-container">
         <header>
             <h1>Mi Agente Gemini</h1>
-            <div id="status-indicator" class="status">Cargando...</div>
+            <div class="header-controls">
+                <button id="settings-btn" title="Configuración">⚙️</button>
+                <div id="status-indicator" class="status">Offline</div>
+            </div>
         </header>
 
         <main id="chat-window">
             <div id="messages" class="messages-container">
-                <!-- Los mensajes aparecerán aquí -->
                 <div class="message system">¡Hola! Soy tu asistente inteligente. ¿En qué puedo ayudarte hoy?</div>
             </div>
         </main>
+
+        <!-- Modal de Configuración -->
+        <div id="settings-modal" class="modal">
+            <div class="modal-content">
+                <h2>Configuración</h2>
+                <p>Si el servidor no está disponible, ingresa tu API Key de Gemini para usarla desde el navegador:</p>
+                <input type="password" id="api-key-input" placeholder="Tu Gemini API Key">
+                <div class="modal-buttons">
+                    <button id="save-settings">Guardar</button>
+                    <button id="close-settings">Cerrar</button>
+                </div>
+            </div>
+        </div>
 
         <footer>
             <form id="chat-form">
@@ -29,7 +52,7 @@
     </div>
 
     <script src="public/js/app.js"></script>
-    <script src="public/js/chat.js"></script>
+    <script type="module" src="public/js/chat.js"></script>
     <script src="public/js/agent.js"></script>
 </body>
 </html>
